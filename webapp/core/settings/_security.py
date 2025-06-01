@@ -13,3 +13,5 @@ class SecuritySettings:
     WSGI_APPLICATION = "core.wsgi.application"
 
     DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+    AUTH_USER_MODEL = "_user.User"
