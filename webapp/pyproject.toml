@@ -1,0 +1,31 @@
+[project]
+name = "webapps"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Rajan66",email = "rajanmaharjan042@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "django (>=5.2.1,<6.0.0)",
+    "djangorestframework (>=3.16.0,<4.0.0)",
+    "djangorestframework-simplejwt (>=5.5.0,<6.0.0)",
+    "drf-yasg (>=1.21.10,<2.0.0)",
+    "python-dotenv (>=1.1.0,<2.0.0)",
+    "psycopg[binary] (>=3.2.9,<4.0.0)",
+    "django-configurations (>=2.5.1,<3.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "webapps", from = "src"}]
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+isort = "^6.0.1"
+flake8 = "^7.2.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
