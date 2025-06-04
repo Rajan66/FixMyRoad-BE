@@ -9,6 +9,7 @@ from core.settings._rest_framework import RestFrameworkSettings
 from core.settings._security import SecuritySettings
 from core.settings._static import StaticFileSettings
 from core.settings._templates import TemplatesSettings
+from core.settings._token import TokenSettings
 from core.settings._validators import ValidatorsSettings
 
 
@@ -23,6 +24,7 @@ class BaseSettings(
     SecuritySettings,
     ValidatorsSettings,
     StaticFileSettings,
+    TokenSettings,
     Configuration,
 ):
     @classmethod
