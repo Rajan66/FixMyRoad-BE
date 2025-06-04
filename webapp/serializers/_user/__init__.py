@@ -1,3 +1,3 @@
-from serializers._user.me import ListUserSerializer
+from serializers._user.user import ListUserSerializer
 
 __all__ = ["ListUserSerializer"]
