@@ -8,6 +8,7 @@ class AppsSettings:
         "_gatekeeper",
         "cluster",
         "report",
+        "ward",
+        "thread",
         "swagger",
-        # custom apps
     ]

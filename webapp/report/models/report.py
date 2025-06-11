@@ -10,6 +10,7 @@ class PotholeReport(AbstractBaseModel):
         UserProfile,
         on_delete=models.CASCADE,
         related_name="reports",
+        db_index=True,
     )
 
     # report doesn't need to belong to a cluster right away
@@ -22,7 +23,7 @@ class PotholeReport(AbstractBaseModel):
     )
 
     title = models.CharField(
-        max_length="255",
+        max_length=255,
     )
 
     description = models.TextField(
