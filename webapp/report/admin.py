@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import PotholeImage, PotholeReport
+
+admin.register.site(PotholeReport)
+admin.register.site(PotholeImage)
