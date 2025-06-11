@@ -6,4 +6,4 @@ curl -X 'POST' \
     -d '{
   "email": "rajanmaharjan042@gmail.com",
   "password": "admin"
-}'
+}' | jq -r '.access' | xsel --clipboard --input
