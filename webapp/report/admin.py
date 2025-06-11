@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import PotholeImage, PotholeReport
+from .models import PotholeReport
+from .models.image import PotholeImage
 
-admin.register.site(PotholeReport)
-admin.register.site(PotholeImage)
+admin.site.register(PotholeReport)
+admin.site.register(PotholeImage)
