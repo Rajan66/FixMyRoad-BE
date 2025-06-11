@@ -6,6 +6,8 @@ class AppsSettings:
         "_user",
         "_auth",
         "_gatekeeper",
+        "cluster",
+        "report",
         "swagger",
         # custom apps
     ]
