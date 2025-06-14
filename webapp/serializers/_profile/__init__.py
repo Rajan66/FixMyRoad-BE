@@ -1,5 +1,9 @@
-from .create import UserProfileCreateSerializer
+from .create import CreateUserProfileSerializer
+from .list import ListUserProfileSerializer
+from .update import UpdateUserProfileSerializer
 
 __all__ = [
-    "UserProfileCreateSerializer",
+    "CreateUserProfileSerializer",
+    "UpdateUserProfileSerializer",
+    "ListUserProfileSerializer",
 ]

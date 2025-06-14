@@ -2,7 +2,7 @@ from django.contrib.auth.password_validation import validate_password
 from django.db import transaction
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
-from serializers._profile import UserProfileCreateSerializer
+from serializers._profile import CreateUserProfileSerializer
 
 from _user.models import User
 
@@ -66,7 +66,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
 
         user_obj = User.objects.create_user(email, password)
 
-        profile_serializer = UserProfileCreateSerializer(
+        profile_serializer = CreateUserProfileSerializer(
             data={**profile_data, "user": user_obj.id}
         )
         profile_serializer.is_valid(raise_exception=True)
