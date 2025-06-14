@@ -26,12 +26,18 @@ class UserProfile(AbstractBaseModel):
 
     address = models.CharField(
         max_length=100,
+        blank=True,
+        null=True,
     )
 
     phone = models.CharField(
         max_length=10,
+        blank=True,
+        null=True,
     )
 
     image = models.ImageField(
         upload_to="profile/",
+        blank=True,
+        null=True,
     )
