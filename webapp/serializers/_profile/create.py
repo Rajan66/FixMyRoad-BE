@@ -2,7 +2,7 @@ from _user.models import UserProfile
 from rest_framework import serializers
 
 
-class UserProfileCreateSerializer(serializers.ModelSerializer):
+class CreateUserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
 
@@ -15,10 +15,7 @@ class UserProfileCreateSerializer(serializers.ModelSerializer):
         ]
 
     def create(self, validated_data, **kwargs):
-        print(validated_data)
-
         user = validated_data.pop("user")
-        print(type(user))
         first_name = validated_data.pop("first_name")
         last_name = validated_data.pop("last_name")
 
