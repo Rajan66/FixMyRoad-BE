@@ -4,6 +4,7 @@ from _user.views import (
     CreateUserProfileView,
     DestroyUserProfileView,
     ListUserProfileView,
+    RetrieveUserProfileView,
     UpdateUserProfileView,
 )
 
@@ -17,6 +18,11 @@ urlpatterns = [
         "delete/<str:pk>/",
         DestroyUserProfileView.as_view(),
         name="delete-profile",
+    ),
+    path(
+        "retrieve/<str:pk>/",
+        RetrieveUserProfileView.as_view(),
+        name="retrieve-profile",
     ),
     path(
         "create/",
