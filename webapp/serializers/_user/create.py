@@ -72,6 +72,4 @@ class CreateUserSerializer(serializers.ModelSerializer):
         profile_serializer.is_valid(raise_exception=True)
         profile_serializer.save()
 
-        print(profile_serializer)
-
         return user_obj
