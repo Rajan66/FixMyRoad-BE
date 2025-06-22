@@ -7,4 +7,5 @@ urlpatterns = [
     path("", include("swagger.urls")),
     path(f"{api_prefix}/user/", include("_user.urls")),
     path(f"{api_prefix}/gatekeeper/", include("_gatekeeper.urls")),
+    path(f"{api_prefix}/report/", include("report.urls")),
 ]
