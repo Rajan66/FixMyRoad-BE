@@ -1,5 +1,5 @@
 class CorsSettings:
-    ALLOWED_HOSTS = []  # Accepts all hosts in development (not safe for prod)
+    ALLOWED_HOSTS = ["*"]  # Accepts all hosts in development (not safe for prod)
 
     CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins in development
 
