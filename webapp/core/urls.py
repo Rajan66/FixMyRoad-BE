@@ -8,4 +8,5 @@ urlpatterns = [
     path(f"{api_prefix}/user/", include("_user.urls")),
     path(f"{api_prefix}/gatekeeper/", include("_gatekeeper.urls")),
     path(f"{api_prefix}/report/", include("report.urls")),
+    path(f"{api_prefix}/cluster/", include("cluster.urls")),
 ]
