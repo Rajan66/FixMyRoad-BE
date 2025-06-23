@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  web:
+    container_name: "fixmyroad-1"
+    build:
+      context: ../webapp
+      dockerfile: ../build-docker/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../webapp:/app
+    command: python manage.py runserver 0.0.0.0:8000
+    env_file:
+      - .env
+    restart: always
+
+networks:
+  default:
+    external:
+      name: fixmyroad-net

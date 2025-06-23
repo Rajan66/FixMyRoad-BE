@@ -8,7 +8,9 @@ from core.settings._middlewares import MiddlewareSettings
 from core.settings._rest_framework import RestFrameworkSettings
 from core.settings._security import SecuritySettings
 from core.settings._static import StaticFileSettings
+from core.settings._swagger import SwaggerSettings
 from core.settings._templates import TemplatesSettings
+from core.settings._token import TokenSettings
 from core.settings._validators import ValidatorsSettings
 
 
@@ -23,6 +25,8 @@ class BaseSettings(
     SecuritySettings,
     ValidatorsSettings,
     StaticFileSettings,
+    SwaggerSettings,
+    TokenSettings,
     Configuration,
 ):
     @classmethod
