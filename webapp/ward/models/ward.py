@@ -19,10 +19,12 @@ class Ward(AbstractBaseModel):
     )
 
     # Geolocation (need to think about this)
-    area_boundary = models.JSONField()
+    area_boundary = models.JSONField(blank=True, null=True)
 
     image = models.ImageField(
         upload_to="ward/",
+        blank=True,
+        null=True,
     )
 
     # dynamically calucate from the geolocation in the future

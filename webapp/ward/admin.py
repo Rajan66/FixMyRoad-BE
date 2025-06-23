@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from ward.models import Ward
+
+admin.site.register(Ward)
