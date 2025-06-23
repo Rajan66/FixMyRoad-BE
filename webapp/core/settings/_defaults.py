@@ -14,16 +14,19 @@ class Defaults:
         "rest_framework_simplejwt",
         "rest_framework_simplejwt.token_blacklist",
         "drf_yasg",
+        "corsheaders",
+        "django_filters",
     ]
 
     MIDDLEWARE = [
+        "corsheaders.middleware.CorsMiddleware",
         "django.middleware.security.SecurityMiddleware",
         "django.contrib.sessions.middleware.SessionMiddleware",
-        "django.middleware.common.CommonMiddleware",
         "django.middleware.csrf.CsrfViewMiddleware",
         "django.contrib.auth.middleware.AuthenticationMiddleware",
         "django.contrib.messages.middleware.MessageMiddleware",
         "django.middleware.clickjacking.XFrameOptionsMiddleware",
+        "django.middleware.common.CommonMiddleware",
     ]
 
     TEMPLATES = [
