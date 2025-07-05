@@ -41,5 +41,11 @@ class PotholeReport(AbstractBaseModel):
         default="open",
     )
 
+    image = models.ImageField(
+        upload_to="report/",
+        blank=True,
+        null=True,
+    )
+
     def __str__(self):
         return f"Report {self.title} by {self.profile.first_name}"

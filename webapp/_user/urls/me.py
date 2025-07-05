@@ -4,6 +4,7 @@ from _user.views import (
     CreateUserProfileView,
     DestroyUserProfileView,
     ListUserProfileView,
+    RetrieveMeView,
     RetrieveUserProfileView,
     UpdateUserProfileView,
 )
@@ -23,6 +24,11 @@ urlpatterns = [
         "retrieve/<str:pk>/",
         RetrieveUserProfileView.as_view(),
         name="retrieve-profile",
+    ),
+    path(
+        "retrieve/",
+        RetrieveMeView.as_view(),
+        name="retrieve-me",
     ),
     path(
         "create/",

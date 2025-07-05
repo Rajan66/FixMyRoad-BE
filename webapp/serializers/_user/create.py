@@ -23,6 +23,8 @@ class CreateUserSerializer(serializers.ModelSerializer):
         validators=[UniqueValidator(queryset=User.objects.all())],
     )
 
+    role = serializers.CharField()
+
     password = serializers.CharField(
         write_only=True,
         required=True,
@@ -51,6 +53,11 @@ class CreateUserSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 {"password2": "Password fields don't match."}
             )
+
+        if attrs["role"] not in ["admin", "user", "ward"]:
+            raise serializers.ValidationError(
+                {"role": "Invalid role."},
+            )
         return attrs
 
     @transaction.atomic
@@ -58,13 +65,14 @@ class CreateUserSerializer(serializers.ModelSerializer):
         validated_data.pop("password2")
         email = validated_data.pop("email")
         password = validated_data.pop("password")
+        role = validated_data.pop("role")
 
         profile_data = {
             "first_name": validated_data.pop("first_name"),
             "last_name": validated_data.pop("last_name"),
         }
 
-        user_obj = User.objects.create_user(email, password)
+        user_obj = User.objects.create_user(email, password, role=role)
 
         profile_serializer = CreateUserProfileSerializer(
             data={**profile_data, "user": user_obj.id}

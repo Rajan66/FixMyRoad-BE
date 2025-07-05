@@ -1,6 +1,6 @@
 from .create import CreateUserProfileSerializer
 from .list import ListUserProfileSerializer
-from .retrieve import RetrieveUserProfileSerializer
+from .retrieve import RetrieveMeSerializer, RetrieveUserProfileSerializer
 from .update import UpdateUserProfileSerializer
 
 __all__ = [
@@ -8,4 +8,5 @@ __all__ = [
     "UpdateUserProfileSerializer",
     "ListUserProfileSerializer",
     "RetrieveUserProfileSerializer",
+    "RetrieveMeSerializer",
 ]
