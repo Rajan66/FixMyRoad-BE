@@ -1,7 +1,7 @@
 from .create import CreateUserProfileView, CreateUserView
 from .delete import DestroyUserProfileView, DestroyUserView
 from .list import ListUserProfileView, ListUserView
-from .retrieve import RetrieveUserProfileView
+from .retrieve import RetrieveMeView, RetrieveUserProfileView
 from .update import UpdateUserProfileView
 
 __all__ = [
@@ -14,4 +14,5 @@ __all__ = [
     "ListUserProfileView",
     "DestroyUserProfileView",
     "RetrieveUserProfileView",
+    "RetrieveMeView",
 ]
