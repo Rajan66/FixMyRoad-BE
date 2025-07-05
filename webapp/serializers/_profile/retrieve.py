@@ -7,3 +7,10 @@ class RetrieveUserProfileSerializer(serializers.ModelSerializer):
         model = UserProfile
 
         fields = "__all__"
+
+
+class RetrieveMeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfile
+
+        fields = "__all__"
