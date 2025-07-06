@@ -41,3 +41,6 @@ class UserProfile(AbstractBaseModel):
         blank=True,
         null=True,
     )
+
+    def __str__(self):
+        return f"{self.user.email}"
