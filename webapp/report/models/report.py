@@ -43,8 +43,8 @@ class PotholeReport(AbstractBaseModel):
 
     priority = models.CharField(
         max_length=20,
-        choices=ReportChoices.STATUS_CHOICES,
-        default="open",
+        choices=ReportChoices.PRIORITY_CHOICES,
+        default="low",
     )
 
     image = models.ImageField(
