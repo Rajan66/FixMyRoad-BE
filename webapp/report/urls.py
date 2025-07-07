@@ -1,6 +1,7 @@
 from django.urls import path
 
 from .views import (
+    CreateBulkReportView,
     CreateReportView,
     DestroyReportView,
     ListReportView,
@@ -13,6 +14,11 @@ urlpatterns = [
         "create/",
         CreateReportView.as_view(),
         name="create-report",
+    ),
+    path(
+        "bulk-create/",
+        CreateBulkReportView.as_view(),
+        name="bulk-create-report",
     ),
     path(
         "list/",

@@ -13,3 +13,7 @@ class CreateReportSerializer(serializers.ModelSerializer):
             "created_at",
             "updated_at",
         ]
+
+    def create(self, validated_data):
+        report = PotholeReport.objects.create(**validated_data)
+        return report

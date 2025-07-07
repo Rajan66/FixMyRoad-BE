@@ -4,7 +4,7 @@ from serializers.report import ListReportSerializer
 from cluster.models import Cluster
 
 
-class ListClusterSerializer(serializers.ModelSerializer):
+class ListClusterReportSerializer(serializers.ModelSerializer):
     reports = ListReportSerializer(many=True)
 
     class Meta:

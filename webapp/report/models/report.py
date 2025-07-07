@@ -1,5 +1,5 @@
 from _user.models import UserProfile
-from base.enums import ReportStatus
+from base.enums import ReportChoices
 from base.models import AbstractBaseModel
 from cluster.models import Cluster
 from django.db import models
@@ -37,8 +37,14 @@ class PotholeReport(AbstractBaseModel):
 
     status = models.CharField(
         max_length=20,
-        choices=ReportStatus.STATUS_CHOICES,
+        choices=ReportChoices.STATUS_CHOICES,
         default="open",
+    )
+
+    severity = models.CharField(
+        max_length=20,
+        choices=ReportChoices.SEVERITY_CHOICES,
+        default="low",
     )
 
     image = models.ImageField(
