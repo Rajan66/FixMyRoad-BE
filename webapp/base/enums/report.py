@@ -6,7 +6,7 @@ class ReportChoices:
         ("resolved", "Resolved"),
     ]
 
-    PRIORITY_CHOICES = [
+    SEVERITY_CHOICES = [
         ("low", "low"),
         ("medium", "medium"),
         ("high", "High"),

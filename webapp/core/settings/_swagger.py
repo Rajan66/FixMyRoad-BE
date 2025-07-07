@@ -9,4 +9,5 @@ class SwaggerSettings:
             }
         },
         "SECURITY_REQUIREMENTS": [{"Bearer": []}],
+        "AUTO_SCHEMA_CLASS": "drf_yasg.inspectors.SwaggerAutoSchema",
     }
