@@ -1,7 +1,8 @@
 from .create import CreateClusterView
+from .dbscan import AllDBSCANView
 from .delete import DestroyClusterView
 from .list import ListClusterView
-from .retrieve import RetrieveClusterView
+from .retrieve import RetrieveClusterReportView, RetrieveClusterView
 from .update import UpdateClusterView
 
 __all__ = [
@@ -10,4 +11,6 @@ __all__ = [
     "UpdateClusterView",
     "DestroyClusterView",
     "RetrieveClusterView",
+    "AllDBSCANView",
+    "RetrieveClusterReportView",
 ]
