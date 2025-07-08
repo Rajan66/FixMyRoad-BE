@@ -1,5 +1,5 @@
-from .signals import create_user_profile
+from .signals import send_email
 
 __all__ = [
-    "create_user_profile",
+    "send_email",
 ]
