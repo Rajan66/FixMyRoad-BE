@@ -66,13 +66,19 @@ class CreateUserSerializer(serializers.ModelSerializer):
         email = validated_data.pop("email")
         password = validated_data.pop("password")
         role = validated_data.pop("role")
+        is_active = False
 
         profile_data = {
             "first_name": validated_data.pop("first_name"),
             "last_name": validated_data.pop("last_name"),
         }
 
-        user_obj = User.objects.create_user(email, password, role=role)
+        user_obj = User.objects.create_user(
+            email,
+            password,
+            role=role,
+            is_active=is_active,
+        )
 
         profile_serializer = CreateUserProfileSerializer(
             data={**profile_data, "user": user_obj.id}
