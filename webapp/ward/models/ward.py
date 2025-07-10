@@ -1,17 +1,17 @@
-from _user.models import User
+from _user.models.user import User
 from base.models import AbstractBaseModel
 from django.db import models
 
 
 class Ward(AbstractBaseModel):
-    user = models.ForeignKey(
+    user = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
         related_name="ward",
     )
 
     name = models.CharField(
-        max_length=20,
+        max_length=100,
     )
 
     ward_number = models.CharField(
@@ -30,4 +30,9 @@ class Ward(AbstractBaseModel):
     # dynamically calucate from the geolocation in the future
     town = models.CharField(
         max_length=100,
+        blank=True,
+        null=True,
     )
+
+    def __str__(self):
+        return f"{self.name} - {self.ward_number}"
