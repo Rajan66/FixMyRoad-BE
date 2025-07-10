@@ -1,7 +1,8 @@
 from base.models import AbstractBaseModel
 from django.db import models
+from ward.models import Ward
 
-from .user import User
+from _user.models.user import User
 
 
 class UserProfile(AbstractBaseModel):
@@ -9,6 +10,14 @@ class UserProfile(AbstractBaseModel):
         User,
         on_delete=models.CASCADE,
         related_name="profile",
+    )
+
+    ward = models.OneToOneField(
+        Ward,
+        blank=True,
+        null=True,
+        related_name="user_profile",
+        on_delete=models.SET_NULL,
     )
 
     first_name = models.CharField(
@@ -43,4 +52,4 @@ class UserProfile(AbstractBaseModel):
     )
 
     def __str__(self):
-        return f"{self.user.email}"
+        return f"{self.first_name} {self.last_name}"

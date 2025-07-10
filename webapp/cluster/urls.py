@@ -5,6 +5,7 @@ from .views import (
     CreateClusterView,
     DestroyClusterView,
     ListClusterView,
+    ListWardClusterView,
     RetrieveClusterReportView,
     RetrieveClusterView,
     UpdateClusterView,
@@ -20,6 +21,11 @@ urlpatterns = [
         "list/",
         ListClusterView.as_view(),
         name="list-cluster",
+    ),
+    path(
+        "list/ward/",
+        ListWardClusterView.as_view(),
+        name="list-ward-cluster",
     ),
     path(
         "retrieve/<str:pk>/",

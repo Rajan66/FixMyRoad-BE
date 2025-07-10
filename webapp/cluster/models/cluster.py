@@ -9,7 +9,12 @@ class Cluster(AbstractBaseModel):
 
     center_latitude = models.FloatField()
 
-    ward = models.ForeignKey(
+    title = models.CharField(
+        null=True,
+        blank=True,
+    )
+
+    ward = models.OneToOneField(
         Ward,
         on_delete=models.SET_NULL,
         related_name="clusters",
