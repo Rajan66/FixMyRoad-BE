@@ -7,3 +7,4 @@ class ReportConfig(AppConfig):
 
     def ready(self):
         import _algorithms.signals.cluster  # noqa
+        import services.cluster.signals  # noqa

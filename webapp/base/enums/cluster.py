@@ -1,6 +1,6 @@
 class ClusterStatus:
     STATUS_CHOICES = [
-        ("new", "New"),
+        ("open", "Open"),
         ("in progress", "In Progress"),
         ("partially_resolved", "Partially Resolved"),
         ("resolved", "Resolved"),
