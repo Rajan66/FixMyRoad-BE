@@ -1,3 +1,4 @@
+from .bulk import CreateBulkReportView
 from .create import CreateReportView
 from .delete import DestroyReportView
 from .list import ListReportView
@@ -10,4 +11,5 @@ __all__ = [
     "UpdateReportView",
     "DestroyReportView",
     "RetrieveReportView",
+    "CreateBulkReportView",
 ]
