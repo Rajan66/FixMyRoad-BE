@@ -6,7 +6,7 @@ from _user.models.user import User
 
 
 class UserProfile(AbstractBaseModel):
-    user = models.ForeignKey(
+    user = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
         related_name="profile",

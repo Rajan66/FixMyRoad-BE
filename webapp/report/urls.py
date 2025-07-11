@@ -4,6 +4,7 @@ from .views import (
     CreateBulkReportView,
     CreateReportView,
     DestroyReportView,
+    ListMeReportView,
     ListReportView,
     RetrieveReportView,
     UpdateReportView,
@@ -24,6 +25,11 @@ urlpatterns = [
         "list/",
         ListReportView.as_view(),
         name="list-report",
+    ),
+    path(
+        "list/me/",
+        ListMeReportView.as_view(),
+        name="list-report-me",
     ),
     path(
         "retrieve/<str:pk>/",
