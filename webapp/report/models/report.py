@@ -53,7 +53,7 @@ class PotholeReport(AbstractBaseModel):
     system_flag = models.CharField(
         max_length=20,
         choices=ReportChoices.FLAG_CHOICES,
-        default="needs_review",
+        default="valid",
     )
 
     severity = models.CharField(

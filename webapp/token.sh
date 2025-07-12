@@ -3,4 +3,4 @@ curl -X POST \
     -H 'accept: application/json' \
     -H 'Content-Type: application/json' \
     -H 'X-CSRFTOKEN: KtOuYZu2fgs2k8IH5h4kiZi4zHcO8UUPSVyd1OYFWVOGNhFbesTWkcrleXnNT39o' \
-    -d '{"email": "l3vi3211@gmail.com", "password": "admin"}' | tee >(jq -r '.access' | xsel --clipboard --input)
+    -d '{"email": "rajanmaharjan042@gmail.com", "password": "admin"}' | tee >(jq -r '.access' | xsel --clipboard --input)

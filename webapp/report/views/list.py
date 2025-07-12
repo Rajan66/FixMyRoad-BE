@@ -15,26 +15,28 @@ class ListReportView(ListAPIView):
         user = self.request.user
 
         if not user.is_authenticated or user.role == "user":
-            return PotholeReport.objects.all()
+            return PotholeReport.objects.all().order_by("-updated_at")
 
         if user.role == "admin":
-            return PotholeReport.objects.all()
+            return PotholeReport.objects.all().order_by("-updated_at")
 
         if user.role == "ward":
-            return PotholeReport.objects.filter(ward=user.ward)
+            return PotholeReport.objects.filter(ward=user.ward).order_by("-updated_at")
 
-        return PotholeReport.objects.all()
+        return PotholeReport.objects.all().order_by("-updated_at")
 
 
 class ListMeReportView(ListAPIView):
     serializer_class = ListReportSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         user = self.request.user
 
         if user.is_authenticated and user.role == "user":
-            print(user.profile)
-            return PotholeReport.objects.filter(profile=user.profile)
+            return PotholeReport.objects.filter(profile=user.profile).order_by(
+                "-updated_at"
+            )
 
         return PotholeReport.objects.none()
