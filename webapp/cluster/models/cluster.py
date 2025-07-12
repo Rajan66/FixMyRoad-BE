@@ -14,7 +14,7 @@ class Cluster(AbstractBaseModel):
         blank=True,
     )
 
-    ward = models.OneToOneField(
+    ward = models.ForeignKey(
         Ward,
         on_delete=models.SET_NULL,
         related_name="clusters",
@@ -27,6 +27,20 @@ class Cluster(AbstractBaseModel):
         choices=ClusterStatus.STATUS_CHOICES,
         default="new",
     )
+
+    priority = models.CharField(
+        max_length=40,
+        choices=ClusterStatus.PRIORITY_CHOICES,
+        default="low",
+    )
+
+    system_flag = models.CharField(
+        max_length=40,
+        choices=ClusterStatus.FLAG_CHOICES,
+        default="needs_review",
+    )
+
+    priority_score = models.FloatField(default=0.0)
 
     assigned_date = models.DateField(
         null=True,

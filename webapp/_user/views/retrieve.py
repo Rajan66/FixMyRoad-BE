@@ -15,7 +15,7 @@ class RetrieveMeView(RetrieveAPIView):
     queryset = UserProfile.objects.all()
 
     def get(self, request, *args, **kwargs):
-        profile = request.user.profile.first()
+        profile = request.user.profile
         if not profile:
             return Response({"detail": "Profile not found."}, status=404)
 
