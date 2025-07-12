@@ -9,9 +9,7 @@ from _algorithms.utils import haversine
 
 @receiver(post_save, sender=Report)
 def assign_cluster(sender, instance, created, **kwargs):
-    if not created or instance.cluster:
-        return
-
+    print("Clustering....")
     # Fetch all unclustered reports (including this one)
     unclustered = Report.objects.filter(cluster__isnull=True)
     if unclustered.count() < 2:
@@ -86,4 +84,5 @@ def update_cluster_metrics(cluster):
     else:
         cluster.priority = "low"
 
+    print("Clustering complete...")
     cluster.save()
