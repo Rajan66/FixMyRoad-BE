@@ -3,6 +3,7 @@ from base.enums import ReportChoices
 from base.models import AbstractBaseModel
 from cluster.models import Cluster
 from django.db import models
+from ward.models import Ward
 
 
 class PotholeReport(AbstractBaseModel):
@@ -16,6 +17,14 @@ class PotholeReport(AbstractBaseModel):
     # report doesn't need to belong to a cluster right away
     cluster = models.ForeignKey(
         Cluster,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="reports",
+    )
+
+    ward = models.ForeignKey(
+        Ward,
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
@@ -38,7 +47,13 @@ class PotholeReport(AbstractBaseModel):
     status = models.CharField(
         max_length=20,
         choices=ReportChoices.STATUS_CHOICES,
-        default="open",
+        default="new",
+    )
+
+    system_flag = models.CharField(
+        max_length=20,
+        choices=ReportChoices.FLAG_CHOICES,
+        default="valid",
     )
 
     severity = models.CharField(

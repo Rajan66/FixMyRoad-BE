@@ -9,3 +9,4 @@ class ListWardView(ListAPIView):
     serializer_class = ListWardSerializer
     queryset = Ward.objects.all()
     permission_classes = [AllowAny]
+    pagination_class = None
