@@ -4,6 +4,7 @@ from .views import (
     CreateWardView,
     DestroyWardView,
     ListWardView,
+    RetrieveMeWardView,
     RetrieveWardView,
     UpdateWardView,
 )
@@ -23,6 +24,11 @@ urlpatterns = [
         "retrieve/<str:pk>/",
         RetrieveWardView.as_view(),
         name="retrieve-ward",
+    ),
+    path(
+        "me/retrieve/",
+        RetrieveMeWardView.as_view(),
+        name="retrieve-me-ward",
     ),
     path(
         "update/<str:pk>/",
