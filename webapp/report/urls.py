@@ -48,7 +48,7 @@ urlpatterns = [
         name="delete-report",
     ),
     path(
-        "count/",
+        "statistics/",
         ReportCountView.as_view(),
         name="count-report",
     ),
