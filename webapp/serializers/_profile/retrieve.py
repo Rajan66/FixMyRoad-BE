@@ -15,6 +15,7 @@ class RetrieveUserProfileSerializer(serializers.ModelSerializer):
 
 
 class RetrieveMeSerializer(serializers.ModelSerializer):
+    ward = ListWardSerializer()
     user = ListUserSerializer()
 
     class Meta:
