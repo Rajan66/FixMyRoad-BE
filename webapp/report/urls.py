@@ -6,7 +6,7 @@ from .views import (
     DestroyReportView,
     ListMeReportView,
     ListReportView,
-    ReportCountView,
+    ReportStatisticsView,
     RetrieveReportView,
     UpdateReportView,
 )
@@ -49,7 +49,7 @@ urlpatterns = [
     ),
     path(
         "statistics/",
-        ReportCountView.as_view(),
+        ReportStatisticsView.as_view(),
         name="count-report",
     ),
 ]

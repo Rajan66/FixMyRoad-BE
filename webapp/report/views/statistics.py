@@ -1,9 +1,9 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from serializers.report import ReportCountSerializer
+from serializers.report import ReportStatisticsSerializer
 
 
-class ReportCountView(APIView):
+class ReportStatisticsView(APIView):
     def get(self, request):
-        serializer = ReportCountSerializer(instance={})
+        serializer = ReportStatisticsSerializer(instance={})
         return Response(serializer.data)

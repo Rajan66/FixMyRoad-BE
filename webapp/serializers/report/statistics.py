@@ -6,7 +6,7 @@ from rest_framework import serializers
 from report.models import PotholeReport
 
 
-class ReportCountSerializer(serializers.Serializer):
+class ReportStatisticsSerializer(serializers.Serializer):
     total_reports = serializers.SerializerMethodField()
 
     resolved_reports = serializers.SerializerMethodField()

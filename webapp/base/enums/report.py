@@ -14,6 +14,5 @@ class ReportChoices:
     FLAG_CHOICES = [
         ("valid", "Valid"),
         ("needs_review", "Needs Review"),
-        ("suspicious", "Suspicious"),
         ("invalid", "Invalid"),
     ]

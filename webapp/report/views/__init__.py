@@ -3,7 +3,7 @@ from .create import CreateReportView
 from .delete import DestroyReportView
 from .list import ListMeReportView, ListReportView
 from .retrieve import RetrieveReportView
-from .statistics import ReportCountView
+from .statistics import ReportStatisticsView
 from .update import UpdateReportView
 
 __all__ = [
@@ -14,5 +14,5 @@ __all__ = [
     "RetrieveReportView",
     "CreateBulkReportView",
     "ListMeReportView",
-    "ReportCountView",
+    "ReportStatisticsView",
 ]
