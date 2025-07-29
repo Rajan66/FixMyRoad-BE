@@ -2,6 +2,7 @@ from .create import CreateWardView
 from .delete import DestroyWardView
 from .list import ListWardView
 from .retrieve import RetrieveMeWardView, RetrieveWardView
+from .statistics import StatisticsWardClusterView
 from .update import UpdateWardView
 
 __all__ = [
@@ -11,4 +12,5 @@ __all__ = [
     "DestroyWardView",
     "RetrieveWardView",
     "RetrieveMeWardView",
+    "StatisticsWardClusterView",
 ]
