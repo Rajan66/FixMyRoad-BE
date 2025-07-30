@@ -1,5 +1,6 @@
 from datetime import timedelta
 
+from django.db.models import Count
 from django.utils import timezone
 from rest_framework import serializers
 
@@ -7,71 +8,43 @@ from report.models import PotholeReport
 
 
 class ReportStatisticsSerializer(serializers.Serializer):
-    total_reports = serializers.SerializerMethodField()
+    total_reports = serializers.IntegerField()
+    resolved_reports = serializers.IntegerField()
+    reports_lastweek = serializers.IntegerField()
+    resolved_reports_lastweek = serializers.IntegerField()
+    in_progress_reports = serializers.IntegerField()
+    in_progress_reports_lastweek = serializers.IntegerField()
+    open_reports = serializers.IntegerField()
+    open_reports_lastweek = serializers.IntegerField()
 
-    resolved_reports = serializers.SerializerMethodField()
+    def to_representation(self, instance):
+        now = timezone.now()
+        one_week_ago = now - timedelta(weeks=1)
 
-    reports_lastweek = serializers.SerializerMethodField()
+        all_reports = PotholeReport.objects.all()
+        last_week_reports = all_reports.filter(created_at__gte=one_week_ago)
+        updated_last_week = all_reports.filter(updated_at__gte=one_week_ago)
 
-    resolved_reports_lastweek = serializers.SerializerMethodField()
+        # Prepare count map
+        status_counts = all_reports.values("status").annotate(
+            count=Count("id"),
+        )
 
-    in_progress_reports = serializers.SerializerMethodField()
+        updated_status_counts = updated_last_week.values("status").annotate(
+            count=Count("id")
+        )
 
-    in_progress_reports_lastweek = serializers.SerializerMethodField()
+        # Convert to dicts
+        status_map = {item["status"]: item["count"] for item in status_counts}
+        updated_map = {item["status"]: item["count"] for item in updated_status_counts}
 
-    open_reports = serializers.SerializerMethodField()
-
-    open_reports_lastweek = serializers.SerializerMethodField()
-
-    def get_total_reports(self, obj):
-        return PotholeReport.objects.count()
-
-    def get_resolved_reports(self, obj):
-        return PotholeReport.objects.filter(status="resolved").count()
-
-    def get_reports_lastweek(self, obj):
-        current_total = PotholeReport.objects.count()
-        one_week_ago = timezone.now() - timedelta(weeks=1)
-        total_week_ago = PotholeReport.objects.filter(
-            created_at__lt=one_week_ago
-        ).count()
-        return current_total - total_week_ago
-
-    def get_resolved_reports_lastweek(self, obj):
-        current_resolved = PotholeReport.objects.filter(
-            status="resolved",
-        ).count()
-        one_week_ago = timezone.now() - timedelta(weeks=1)
-        resolved_week_ago = PotholeReport.objects.filter(
-            status="resolved",
-            updated_at__lt=one_week_ago,
-        ).count()
-        return current_resolved - resolved_week_ago
-
-    def get_in_progress_reports(self, obj):
-        return PotholeReport.objects.filter(status="in progress").count()
-
-    def get_in_progress_reports_lastweek(self, obj):
-        current_resolved = PotholeReport.objects.filter(
-            status="in progress",
-        ).count()
-        one_week_ago = timezone.now() - timedelta(weeks=1)
-        resolved_week_ago = PotholeReport.objects.filter(
-            status="in progress",
-            updated_at__lt=one_week_ago,
-        ).count()
-        return current_resolved - resolved_week_ago
-
-    def get_open_reports(self, obj):
-        return PotholeReport.objects.filter(status="open").count()
-
-    def get_open_reports_lastweek(self, obj):
-        current_resolved = PotholeReport.objects.filter(
-            status="open",
-        ).count()
-        one_week_ago = timezone.now() - timedelta(weeks=1)
-        resolved_week_ago = PotholeReport.objects.filter(
-            status="open",
-            updated_at__lt=one_week_ago,
-        ).count()
-        return current_resolved - resolved_week_ago
+        return {
+            "total_reports": all_reports.count(),
+            "resolved_reports": status_map.get("resolved", 0),
+            "reports_lastweek": last_week_reports.count(),
+            "resolved_reports_lastweek": updated_map.get("resolved", 0),
+            "in_progress_reports": status_map.get("in progress", 0),
+            "in_progress_reports_lastweek": updated_map.get("in progress", 0),
+            "open_reports": status_map.get("open", 0),
+            "open_reports_lastweek": updated_map.get("open", 0),
+        }
