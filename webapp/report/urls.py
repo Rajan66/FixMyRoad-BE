@@ -4,6 +4,7 @@ from .views import (
     CreateBulkReportView,
     CreateReportView,
     DestroyReportView,
+    ExportReportView,
     ListMeReportView,
     ListReportView,
     ReportStatisticsView,
@@ -51,5 +52,10 @@ urlpatterns = [
         "statistics/",
         ReportStatisticsView.as_view(),
         name="count-report",
+    ),
+    path(
+        "export/",
+        ExportReportView.as_view(),
+        name="export-report",
     ),
 ]

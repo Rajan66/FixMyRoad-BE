@@ -1,6 +1,7 @@
 from .bulk import CreateBulkReportView
 from .create import CreateReportView
 from .delete import DestroyReportView
+from .export import ExportReportView
 from .list import ListMeReportView, ListReportView
 from .retrieve import RetrieveReportView
 from .statistics import ReportStatisticsView
@@ -15,4 +16,5 @@ __all__ = [
     "CreateBulkReportView",
     "ListMeReportView",
     "ReportStatisticsView",
+    "ExportReportView",
 ]
