@@ -28,7 +28,7 @@ class Ward(AbstractBaseModel):
     )
 
     # dynamically calucate from the geolocation in the future
-    town = models.CharField(
+    location = models.CharField(
         max_length=100,
         blank=True,
         null=True,
