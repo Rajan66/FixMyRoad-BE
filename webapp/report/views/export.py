@@ -31,15 +31,15 @@ class ExportReportView(APIView):
         for report in reports:
             writer.writerow(
                 [
-                    report.ward.name if report.ward else "",
-                    report.ward.ward_number if report.ward else "",
+                    report.ward.name,
+                    report.ward.ward_number,
                     report.title,
                     report.description,
                     report.latitude,
                     report.longitude,
                     report.status,
                     report.severity,
-                    report.image.url if report.image else "",
+                    report.image,
                 ]
             )
 
