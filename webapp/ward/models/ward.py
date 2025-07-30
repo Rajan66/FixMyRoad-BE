@@ -18,6 +18,10 @@ class Ward(AbstractBaseModel):
         max_length=10,
     )
 
+    phone = models.CharField(
+        max_length=10,
+        null=True,
+    )
     # Geolocation (need to think about this)
     area_boundary = models.JSONField(blank=True, null=True)
 
