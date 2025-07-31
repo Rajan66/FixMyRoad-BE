@@ -1,3 +1,4 @@
+from _algorithms.utils import classify_pothole
 from rest_framework import serializers
 
 from report.models import PotholeReport
@@ -15,5 +16,14 @@ class CreateReportSerializer(serializers.ModelSerializer):
         ]
 
     def create(self, validated_data):
-        report = PotholeReport.objects.create(**validated_data)
-        return report
+        image = validated_data.get("image")
+
+        try:
+            label, prob = classify_pothole(image)
+            validated_data["system_flag"] = (
+                "valid" if label == "pothole" and prob > 0.8 else "needs_review"
+            )
+        except Exception:
+            validated_data["system_flag"] = "needs_review"
+
+        return PotholeReport.objects.create(**validated_data)
