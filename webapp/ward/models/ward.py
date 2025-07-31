@@ -20,6 +20,7 @@ class Ward(AbstractBaseModel):
 
     phone = models.CharField(
         max_length=10,
+        blank=True,
         null=True,
     )
     # Geolocation (need to think about this)
@@ -32,7 +33,7 @@ class Ward(AbstractBaseModel):
     )
 
     # dynamically calucate from the geolocation in the future
-    location = models.CharField(
+    address = models.CharField(
         max_length=100,
         blank=True,
         null=True,
