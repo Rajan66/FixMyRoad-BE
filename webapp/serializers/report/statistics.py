@@ -16,6 +16,9 @@ class ReportStatisticsSerializer(serializers.Serializer):
     in_progress_reports_lastweek = serializers.IntegerField()
     open_reports = serializers.IntegerField()
     open_reports_lastweek = serializers.IntegerField()
+    low_severity = serializers.IntegerField()
+    medium_severity = serializers.IntegerField()
+    high_severity = serializers.IntegerField()
 
     def to_representation(self, instance):
         now = timezone.now()
@@ -29,6 +32,9 @@ class ReportStatisticsSerializer(serializers.Serializer):
         status_counts = all_reports.values("status").annotate(
             count=Count("id"),
         )
+        severity_counts = all_reports.values("severity").annotate(
+            count=Count("id"),
+        )
 
         updated_status_counts = updated_last_week.values("status").annotate(
             count=Count("id")
@@ -36,7 +42,8 @@ class ReportStatisticsSerializer(serializers.Serializer):
 
         # Convert to dicts
         status_map = {item["status"]: item["count"] for item in status_counts}
-        updated_map = {item["status"]: item["count"] for item in updated_status_counts}
+        severity_map = {item["severity"]: item["count"] for item in severity_counts}  # noqa
+        updated_map = {item["status"]: item["count"] for item in updated_status_counts}  # noqa
 
         return {
             "total_reports": all_reports.count(),
@@ -47,4 +54,7 @@ class ReportStatisticsSerializer(serializers.Serializer):
             "in_progress_reports_lastweek": updated_map.get("in progress", 0),
             "open_reports": status_map.get("open", 0),
             "open_reports_lastweek": updated_map.get("open", 0),
+            "low_severity": severity_map.get("low", 0),
+            "medium_severity": severity_map.get("medium", 0),
+            "high_severity": severity_map.get("high", 0),
         }

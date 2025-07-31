@@ -17,7 +17,7 @@ class UpdateReportSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         image = validated_data.get("image", None)
 
-        # Only reclassify if a new image is provided during update
+        print(image)
         if image:
             try:
                 label, prob = classify_pothole(image)
