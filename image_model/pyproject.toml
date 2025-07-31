@@ -1,0 +1,23 @@
+[project]
+name = "image_model"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Rajan66",email = "rajanmaharjan042@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "matplotlib (>=3.10.3,<4.0.0)",
+    "numpy (>=1.26.0,<2.2.0)",
+    "tensorflow-addons (>=0.23.0,<0.24.0)",
+    "tensorflow (>=2.19.0,<3.0.0)",
+]
+
+[tool.poetry]
+packages = [{include = "test", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
