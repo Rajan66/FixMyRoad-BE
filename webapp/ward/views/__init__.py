@@ -1,4 +1,4 @@
-from .create import CreateWardView
+from .create import CreateWardView, RegisterWardView
 from .delete import DestroyWardView
 from .list import ListWardView
 from .retrieve import RetrieveMeWardView, RetrieveWardView
@@ -13,4 +13,5 @@ __all__ = [
     "RetrieveWardView",
     "RetrieveMeWardView",
     "StatisticsWardClusterView",
+    "RegisterWardView",
 ]

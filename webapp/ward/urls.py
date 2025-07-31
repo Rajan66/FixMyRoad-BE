@@ -4,6 +4,7 @@ from .views import (
     CreateWardView,
     DestroyWardView,
     ListWardView,
+    RegisterWardView,
     RetrieveMeWardView,
     RetrieveWardView,
     StatisticsWardClusterView,
@@ -15,6 +16,11 @@ urlpatterns = [
         "create/",
         CreateWardView.as_view(),
         name="create-ward",
+    ),
+    path(
+        "register/",
+        RegisterWardView.as_view(),
+        name="register-ward",
     ),
     path(
         "<str:pk>/cluster/statistics/",
