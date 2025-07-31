@@ -11,7 +11,7 @@ class ExportReportView(APIView):
         reports = PotholeReport.objects.filter(system_flag="valid")
 
         response = HttpResponse(content_type="text/csv")
-        response["Content-Disposition"] = 'attachment; filename="valid_reports.csv"'
+        response["Content-Disposition"] = 'attachment; filename="valid_reports.csv"'  # noqa
 
         writer = csv.writer(response)
         writer.writerow(
@@ -24,7 +24,6 @@ class ExportReportView(APIView):
                 "Longitude",
                 "Status",
                 "Severity",
-                "Image",
             ]
         )
 
@@ -39,7 +38,6 @@ class ExportReportView(APIView):
                     report.longitude,
                     report.status,
                     report.severity,
-                    report.image,
                 ]
             )
 

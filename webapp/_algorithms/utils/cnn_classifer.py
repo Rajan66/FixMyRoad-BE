@@ -46,5 +46,6 @@ def classify_pothole(image_file):
     img_arr = np.array(image) / 255.0
     prob = model.predict(img_arr)
 
-    label = "pothole" if prob > 0.5 else "not_pothole"
+    label = "pothole" if prob > 0.8 else "not_pothole"
+    print("Prediction for pothole: ", label)
     return label, prob
