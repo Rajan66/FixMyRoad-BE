@@ -3,9 +3,9 @@ class CorsSettings:
 
     CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins in development
 
-    CORS_ALLOWED_ORIGINS = [
-        # "http://localhost:3000",
-    ]
+    # CORS_ALLOWED_ORIGINS = [
+    #     # "http://localhost:3000",
+    # ]
 
     # If you want to restrict to specific domains instead:
     # CORS_ALLOW_ALL_ORIGINS = False

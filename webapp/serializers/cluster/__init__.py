@@ -2,6 +2,7 @@ from .create import CreateClusterSerializer
 from .list import ListClusterSerializer
 from .reports import ListClusterReportSerializer
 from .retrieve import RetrieveClusterSerializer
+from .statistics import StatisticsClusterSerializer
 from .update import UpdateClusterSerializer
 
 __all__ = [
@@ -10,4 +11,5 @@ __all__ = [
     "UpdateClusterSerializer",
     "RetrieveClusterSerializer",
     "ListClusterReportSerializer",
+    "StatisticsClusterSerializer",
 ]

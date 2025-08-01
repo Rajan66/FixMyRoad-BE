@@ -1,4 +1,4 @@
-from .create import CreateWardSerializer
+from .create import CreateWardSerializer, RegisterWardSerializer
 from .list import ListWardSerializer
 from .retrieve import RetrieveWardSerializer
 from .update import UpdateWardSerializer
@@ -8,4 +8,5 @@ __all__ = [
     "ListWardSerializer",
     "UpdateWardSerializer",
     "RetrieveWardSerializer",
+    "RegisterWardSerializer",
 ]
