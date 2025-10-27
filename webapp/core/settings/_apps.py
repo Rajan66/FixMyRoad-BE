@@ -11,4 +11,6 @@ class AppsSettings:
         "ward",
         "thread",
         "swagger",
+        "comment",
+        "news",
     ]
