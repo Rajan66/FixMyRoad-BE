@@ -13,6 +13,8 @@ urlpatterns = [
     path(f"{api_prefix}/gatekeeper/", include("_gatekeeper.urls")),
     path(f"{api_prefix}/report/", include("report.urls")),
     path(f"{api_prefix}/cluster/", include("cluster.urls")),
+    path(f"{api_prefix}/comment/", include("comment.urls")),
+    path(f"{api_prefix}/news/", include("news.urls")),
 ]
 
 if settings.DEBUG:

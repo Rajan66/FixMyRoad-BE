@@ -66,7 +66,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
         email = validated_data.pop("email")
         password = validated_data.pop("password")
         role = validated_data.pop("role")
-        is_active = False
+        is_active = True
 
         profile_data = {
             "first_name": validated_data.pop("first_name"),
