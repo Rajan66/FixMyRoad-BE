@@ -10,15 +10,6 @@
 - Ward representatives can validate reports and view clusters.  
 - Public map visualization to highlight problem zones.  
 
----
-
-## Problem
-
-- No easy way for citizens to report road damage.  
-- Manual methods are slow, inefficient, and duplicate reports.  
-- Lack of clustering tools makes resource allocation harder for authorities.  
-
----
 
 ## Objectives
 
@@ -28,20 +19,6 @@
 
 ---
 
-## Requirement Analysis
-
-### Users
-
-- Create account, log in, and manage profile  
-- Submit/view reports with title, description, image, location, and ward  
-
-### Ward Representatives
-
-- Validate reports  
-- View assigned clusters  
-- Access analytics  
-
----
 
 ## Setup (Backend Only)
 
