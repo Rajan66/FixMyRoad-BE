@@ -12,7 +12,7 @@ class UserProfile(AbstractBaseModel):
         related_name="profile",
     )
 
-    ward = models.OneToOneField(
+    ward = models.ForeignKey(
         Ward,
         blank=True,
         null=True,

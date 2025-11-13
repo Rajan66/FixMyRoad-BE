@@ -54,9 +54,11 @@ def assign_cluster(sender, instance, created, **kwargs):
 
         count = reports.count()
         if ward:
-            cluster.title = f"Cluster with {count} report{'s' if count > 1 else ''} in Ward {ward.number}"
+            cluster.title = f"Cluster with {count} report{
+                's' if count > 1 else ''} in Ward {ward.ward_number}"
         else:
-            cluster.title = f"Cluster with  {count} report{'s' if count > 1 else ''}"
+            cluster.title = f"Cluster with  {
+                count} report{'s' if count > 1 else ''}"
 
         cluster.save()
         update_cluster_metrics(cluster)
