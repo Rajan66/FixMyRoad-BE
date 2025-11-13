@@ -1,11 +1,11 @@
 from rest_framework.generics import RetrieveAPIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny
 from serializers.news import NewsRetrieveSerializer
 
 from news.models import News
 
 
 class NewsRetrieveView(RetrieveAPIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     queryset = News.objects.all()
     serializer_class = NewsRetrieveSerializer

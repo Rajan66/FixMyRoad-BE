@@ -19,12 +19,12 @@ urlpatterns = [
         name="news-create",
     ),
     path(
-        "retrieve/<int:pk>/",
+        "retrieve/<uuid:pk>/",
         NewsRetrieveView.as_view(),
         name="news-retrieve",
     ),
     path(
-        "update/<int:pk>/",
+        "update/<uuid:pk>/",
         NewsUpdateView.as_view(),
         name="news-update-delete",
     ),
