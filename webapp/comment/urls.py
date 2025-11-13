@@ -9,7 +9,7 @@ from .views import (
 
 urlpatterns = [
     path(
-        "list/",
+        "<uuid:report_id>/list/",
         CommentListView.as_view(),
         name="comment-list",
     ),
@@ -19,7 +19,7 @@ urlpatterns = [
         name="comment-create",
     ),
     path(
-        "<int:id>/",
+        "<uuid:id>/",
         CommentRetrieveView.as_view(),
         name="comment-detail",
     ),
